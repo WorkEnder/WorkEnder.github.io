@@ -1,56 +1,215 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>小夜的博客</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* ===== 全局重置与变量 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- 背景大图（占上半屏） -->
-  <div class="banner-bg"></div>
+:root {
+  --pink: #ff9ec7;
+  --pink-light: #ffc2dd;
+  --pink-soft: #ffe4f0;
+  --accent: #ff7eb3;
+  --glass-bg: rgba(255, 228, 240, 0.35); /* 偏淡粉色毛玻璃 */
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --text-color: #4a3b43; /* 深一点方便在淡色毛玻璃上阅读 */
+  --radius: 18px;
+  --gray-bg: #f5f0f2; /* 灰粉色内容区背景 */
+}
 
-  <!-- 顶部导航栏（贴边长方形） -->
-  <header class="navbar">
-    <nav class="nav-inner">
-      <a href="index.html" class="brand">小夜的小站</a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">首页</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="posts.html">文章</a></li>
-      </ul>
-      <button class="menu-toggle" aria-label="菜单">☰</button>
-    </nav>
-  </header>
+html, body {
+  height: 100%;
+}
 
-  <!-- 灰色内容区（跟随滚动，盖住背景图） -->
-  <div class="content-wrap">
-    <main class="container">
-      <div class="card profile-card">
-        <div class="avatar">
-          <img src="images/avatar.jpg" alt="头像" />
-        </div>
-        <div class="intro">
-          <h1>你好，我是小夜 👋</h1>
-          <p>
-            这里是我的自我介绍，可以简单写写自己是谁、喜欢做什么、
-            这个博客会分享什么内容等等。
-          </p>
-        </div>
-      </div>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  color: var(--text-color);
+  background: var(--gray-bg);
+  line-height: 1.6;
+}
 
-      <div class="card">
-        <h2>最新文章</h2>
-        <p>文章卡片会展示在这里，后续可以继续添加。</p>
-      </div>
-    </main>
+/* ===== 背景大图（只占上半屏，固定） ===== */
+.banner-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh; /* 占据上半个页面 */
+  background: url("images/banner.jpg") center / cover no-repeat;
+  z-index: -1;
+}
 
-    <footer class="footer">
-      <p>© 2026 小夜 · Powered by GitHub Pages</p>
-    </footer>
-  </div>
+/* ===== 顶部导航栏（贴边，毛玻璃） ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.nav-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 14px 24px;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ===== 内容区（灰色，从半屏处开始，滚动盖住背景图） ===== */
+.content-wrap {
+  position: relative;
+  margin-top: 50vh; /* 与背景图高度一致 */
+  background: var(--gray-bg);
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 0;
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(255, 126, 179, 0.12);
+}
+
+/* 个人信息卡片 */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(255, 126, 179, 0.25);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  color: #6b5a63;
+}
+
+.card h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 16px;
+  color: #9a8a92;
+  font-size: 0.9rem;
+}
+
+/* ===== 响应式（手机适配） ===== */
+@media (max-width: 768px) {
+  .banner-bg {
+    height: 45vh;
+  }
+
+  .content-wrap {
+    margin-top: 45vh;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(255, 228, 240, 0.95);
+    backdrop-filter: blur(18px);
+    padding: 16px;
+    gap: 14px;
+    border-bottom-left-radius: 12px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .intro h1 {
+    font-size: 1.4rem;
+  }
+}
