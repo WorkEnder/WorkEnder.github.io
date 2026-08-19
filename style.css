@@ -10,11 +10,11 @@
   --pink-light: #ffc2dd;
   --pink-soft: #ffe4f0;
   --accent: #ff7eb3;
-  --glass-bg: rgba(255, 228, 240, 0.35); /* 偏淡粉色毛玻璃 */
+  --glass-bg: rgba(255, 228, 240, 0.35);
   --glass-border: rgba(255, 255, 255, 0.4);
-  --text-color: #4a3b43; /* 深一点方便在淡色毛玻璃上阅读 */
+  --text-color: #4a3b43;
   --radius: 18px;
-  --gray-bg: #f5f0f2; /* 灰粉色内容区背景 */
+  --gray-bg: #d9d2d5; /* 调灰一点的内容区背景 */
 }
 
 html, body {
@@ -35,8 +35,8 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 50vh; /* 占据上半个页面 */
-  background: url("image/banner.webp") center / cover no-repeat;
+  height: 50vh;
+  background: url("images/banner.png") center / cover no-repeat;
   z-index: -1;
 }
 
@@ -97,19 +97,63 @@ body {
   cursor: pointer;
 }
 
-/* ===== 内容区（灰色，从半屏处开始，滚动盖住背景图） ===== */
+/* ===== 内容区（灰色，顶部波浪） ===== */
 .content-wrap {
   position: relative;
   margin-top: 50vh; /* 与背景图高度一致 */
   background: var(--gray-bg);
   z-index: 1;
   min-height: 100vh;
+  padding-top: 60px; /* 给波浪留出空间 */
+}
+
+/* 多层波浪（不同透明度 + 偏移叠加） */
+.wave {
+  position: absolute;
+  top: -40px; /* 波浪向上超出内容区顶部 */
+  left: 0;
+  width: 100%;
+  height: 40px;
+  pointer-events: none;
+}
+
+.wave-1 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C240,40 480,0 720,20 C960,40 1200,0 1440,20 L1440,40 L0,40 Z' fill='%23d9d2d5'/%3E%3C/svg%3E") repeat-x bottom;
+  background-size: 1440px 40px;
+  opacity: 1;
+  top: -40px;
+}
+
+.wave-2 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,25 C360,45 720,5 1080,25 C1260,35 1380,15 1440,25 L1440,40 L0,40 Z' fill='%23d9d2d5'/%3E%3C/svg%3E") repeat-x bottom;
+  background-size: 1440px 40px;
+  opacity: 0.6;
+  top: -30px;
+  animation: waveMove 6s linear infinite;
+}
+
+.wave-3 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C300,10 600,35 900,20 C1200,5 1350,30 1440,20 L1440,40 L0,40 Z' fill='%23d9d2d5'/%3E%3C/svg%3E") repeat-x bottom;
+  background-size: 1440px 40px;
+  opacity: 0.4;
+  top: -20px;
+  animation: waveMove 8s linear infinite reverse;
+}
+
+/* 波浪轻微流动动画 */
+@keyframes waveMove {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 1440px;
+  }
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 16px 0;
+  padding: 20px 16px 0;
 }
 
 .card {
@@ -164,7 +208,7 @@ body {
 .footer {
   text-align: center;
   padding: 30px 16px;
-  color: #9a8a92;
+  color: #8a7d83;
   font-size: 0.9rem;
 }
 
