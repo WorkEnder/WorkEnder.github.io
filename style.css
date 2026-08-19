@@ -10,11 +10,11 @@
   --pink-light: #ffc2dd;
   --pink-soft: #ffe4f0;
   --accent: #ff7eb3;
-  --glass-bg: rgba(255, 228, 240, 0.35);
+  --glass-bg: rgba(255, 228, 240, 0.35); /* 偏淡粉色毛玻璃 */
   --glass-border: rgba(255, 255, 255, 0.4);
   --text-color: #4a3b43;
   --radius: 18px;
-  --gray-bg: #d9d2d5; /* 调灰一点的内容区背景 */
+  --gray-bg: #f5f0f2;
 }
 
 html, body {
@@ -29,14 +29,14 @@ body {
   line-height: 1.6;
 }
 
-/* ===== 背景大图（只占上半屏，固定） ===== */
+/* ===== 背景大图（占 60% 屏，固定） ===== */
 .banner-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60vh;
-  background: url("image/banner.webp") center / cover no-repeat;
+  height: 60vh; /* 改为 60% */
+  background: url("image/banner.webp") center / cover no-repeat; /* 路径改为 image/banner.webp */
   z-index: -1;
 }
 
@@ -97,63 +97,19 @@ body {
   cursor: pointer;
 }
 
-/* ===== 内容区（灰色，顶部波浪） ===== */
+/* ===== 内容区（灰色，从 60% 处开始） ===== */
 .content-wrap {
   position: relative;
-  margin-top: 50vh; /* 与背景图高度一致 */
+  margin-top: 60vh; /* 与背景图高度一致 */
   background: var(--gray-bg);
   z-index: 1;
   min-height: 100vh;
-  padding-top: 60px; /* 给波浪留出空间 */
-}
-
-/* 多层波浪（不同透明度 + 偏移叠加） */
-.wave {
-  position: absolute;
-  top: -40px; /* 波浪向上超出内容区顶部 */
-  left: 0;
-  width: 100%;
-  height: 40px;
-  pointer-events: none;
-}
-
-.wave-1 {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C240,40 480,0 720,20 C960,40 1200,0 1440,20 L1440,40 L0,40 Z' fill='%23d9d2d5'/%3E%3C/svg%3E") repeat-x bottom;
-  background-size: 1440px 40px;
-  opacity: 1;
-  top: -40px;
-}
-
-.wave-2 {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,25 C360,45 720,5 1080,25 C1260,35 1380,15 1440,25 L1440,40 L0,40 Z' fill='%23d9d2d5'/%3E%3C/svg%3E") repeat-x bottom;
-  background-size: 1440px 40px;
-  opacity: 0.6;
-  top: -30px;
-  animation: waveMove 6s linear infinite;
-}
-
-.wave-3 {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C300,10 600,35 900,20 C1200,5 1350,30 1440,20 L1440,40 L0,40 Z' fill='%23d9d2d5'/%3E%3C/svg%3E") repeat-x bottom;
-  background-size: 1440px 40px;
-  opacity: 0.4;
-  top: -20px;
-  animation: waveMove 8s linear infinite reverse;
-}
-
-/* 波浪轻微流动动画 */
-@keyframes waveMove {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 1440px;
-  }
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 16px 0;
+  padding: 20px 16px 0; /* 顶部间距调小，让灰色区域顶部更贴近第一个卡片 */
 }
 
 .card {
@@ -162,9 +118,10 @@ body {
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 40px 32px; /* 卡片加高（内边距增大） */
   margin-bottom: 24px;
   box-shadow: 0 8px 32px rgba(255, 126, 179, 0.12);
+  min-height: 220px; /* 卡片更高一些 */
 }
 
 /* 个人信息卡片 */
@@ -208,18 +165,27 @@ body {
 .footer {
   text-align: center;
   padding: 30px 16px;
-  color: #8a7d83;
+  color: #9a8a92;
   font-size: 0.9rem;
 }
 
 /* ===== 响应式（手机适配） ===== */
 @media (max-width: 768px) {
   .banner-bg {
-    height: 45vh;
+    height: 60vh; /* 手机端也保持 60% */
   }
 
   .content-wrap {
-    margin-top: 45vh;
+    margin-top: 60vh;
+  }
+
+  .container {
+    padding: 16px 12px 0;
+  }
+
+  .card {
+    padding: 28px 20px;
+    min-height: 180px;
   }
 
   .nav-links {
