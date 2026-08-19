@@ -8,11 +8,10 @@
 </head>
 <body>
 
-  <!-- 背景装饰光斑（毛玻璃效果更明显） -->
-  <div class="bg-blob blob-1"></div>
-  <div class="bg-blob blob-2"></div>
+  <!-- 背景大图 -->
+  <div class="banner-bg"></div>
 
-  <!-- 顶部导航栏 -->
+  <!-- 顶部导航栏（贴边长方形） -->
   <header class="navbar">
     <nav class="nav-inner">
       <a href="index.html" class="brand">小夜的小站</a>
@@ -21,43 +20,36 @@
         <li><a href="about.html">About</a></li>
         <li><a href="posts.html">文章</a></li>
       </ul>
-      <!-- 手机端汉堡菜单按钮 -->
       <button class="menu-toggle" aria-label="菜单">☰</button>
     </nav>
   </header>
 
-  <!-- 首屏大图 Banner -->
-  <section class="hero">
-    <img src="images/banner.jpg" alt="Banner 大图" class="hero-img" />
-  </section>
-
-  <!-- 主内容区：卡片式 -->
-  <main class="container">
-    <!-- 个人信息卡片 -->
-    <div class="card profile-card">
-      <div class="avatar">
-        <img src="images/avatar.jpg" alt="头像" />
+  <!-- 灰色遮罩（跟随内容一起滚动） -->
+  <div class="content-wrap">
+    <main class="container">
+      <div class="card profile-card">
+        <div class="avatar">
+          <img src="images/avatar.jpg" alt="头像" />
+        </div>
+        <div class="intro">
+          <h1>你好，我是小夜 👋</h1>
+          <p>
+            这里是我的自我介绍，可以简单写写自己是谁、喜欢做什么、
+            这个博客会分享什么内容等等。
+          </p>
+        </div>
       </div>
-      <div class="intro">
-        <h1>你好，我是小夜 👋</h1>
-        <p>
-          这里是我的自我介绍，可以简单写写自己是谁、喜欢做什么、
-          这个博客会分享什么内容等等。我先放一段占位文字，
-          你之后替换成自己的介绍就好啦。
-        </p>
+
+      <div class="card">
+        <h2>最新文章</h2>
+        <p>文章卡片会展示在这里，后续可以继续添加。</p>
       </div>
-    </div>
+    </main>
 
-    <!-- 预留文章卡片区（之后可继续添加） -->
-    <div class="card">
-      <h2>最新文章</h2>
-      <p>文章卡片会展示在这里，后续可以继续添加。</p>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <p>© 2026 小夜 · Powered by GitHub Pages</p>
-  </footer>
+    <footer class="footer">
+      <p>© 2026 小夜 · Powered by GitHub Pages</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
