@@ -12,8 +12,8 @@
   --accent: #6b6b76;
   --radius: 16px;
   --gray-bg: #f7f7f8; /* 灰色区域调白一点 */
-  --wave-1: #e8e8ea;   /* 波浪后层（较淡） */
-  --wave-2: #dcdcdf;   /* 波浪前层 */
+  --wave-1: #f7f7f8;   /* 波浪后层（较淡） */
+  --wave-2: #f7f7f8;   /* 波浪前层 */
 }
 
 html, body {
@@ -129,7 +129,7 @@ body {
 
 .wave-front {
   fill: var(--wave-2);
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 /* 内容容器（窄卡片，居中） */
