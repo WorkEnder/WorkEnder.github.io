@@ -257,3 +257,120 @@ body {
     font-size: 1.25rem;
   }
 }
+
+/* ===== 文章列表页样式 ===== */
+.page-title {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: var(--text-color);
+}
+
+.post-item {
+  display: block;
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: var(--text-color);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+}
+
+.post-title {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: var(--text-color);
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: #9a9aa0;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.post-excerpt {
+  font-size: 0.95rem;
+  color: #5c5c63;
+}
+
+/* ===== 文章详情页样式 ===== */
+.article {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  margin-top: 32px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.article-title {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.article-meta {
+  color: #9a9aa0;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.article-body {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.article-body p {
+  margin-bottom: 16px;
+}
+
+.article-body h2 {
+  font-size: 1.3rem;
+  margin: 24px 0 12px;
+  color: var(--accent);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .post-item {
+    padding: 20px 18px;
+  }
+
+  .article {
+    padding: 24px 20px;
+    margin-top: 20px;
+  }
+
+  .article-title {
+    font-size: 1.4rem;
+  }
+}
