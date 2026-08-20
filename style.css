@@ -100,10 +100,14 @@ body {
 /* ===== 内容区（从 60% 处开始） ===== */
 .content-wrap {
   position: relative;
-  margin-top: 60vh;
   background: var(--gray-bg);
   z-index: 1;
   min-height: 100vh;
+}
+
+/* 只有带背景大图的首页才留出 60vh 的顶部空间 */
+.content-wrap.has-banner {
+  margin-top: 60vh;
 }
 
 /* 波浪顶部装饰 */
