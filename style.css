@@ -57,11 +57,11 @@ body {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--glass-border);
-  padding: 12px 24px;
+  padding: 8px 24px;
 }
 
 .brand {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
@@ -102,11 +102,13 @@ body {
   background: var(--gray-bg);
   z-index: 1;
   min-height: 100vh;
+  padding-top: 80px;
 }
 
 /* 只有带背景大图的首页才留出 60vh 的顶部空间 */
 .content-wrap.has-banner {
   margin-top: 60vh;
+  padding-top: 0;
 }
 
 /* 波浪顶部装饰 */
