@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- 背景大图（占上半屏） -->
+  <!-- 背景大图（占 60% 屏，固定） -->
   <div class="banner-bg"></div>
 
   <!-- 顶部导航栏（贴边长方形） -->
@@ -24,8 +24,18 @@
     </nav>
   </header>
 
-  <!-- 灰色内容区（跟随滚动，盖住背景图） -->
+  <!-- 灰色内容区（波浪顶部，跟随滚动） -->
   <div class="content-wrap">
+    <!-- 波浪形顶部装饰 -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg class="wave wave-back" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C360,140 1080,-20 1440,60 L1440,120 L0,120 Z" />
+      </svg>
+      <svg class="wave wave-front" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,80 C360,150 1080,0 1440,80 L1440,120 L0,120 Z" />
+      </svg>
+    </div>
+
     <main class="container">
       <div class="card profile-card">
         <div class="avatar">
