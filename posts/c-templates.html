@@ -6,8 +6,8 @@
   <title>常用的C语言模板 - 小夜的博客</title>
   <link rel="stylesheet" href="../style.css" />
   <!-- 语法高亮 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github-dark.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/index.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
 </head>
 <body>
 
@@ -34,7 +34,7 @@
         <h2>1. 手写哈希表</h2>
         <p>使用「开放寻址法」实现的整数哈希表，适合整数键值对的快速存取。</p>
 
-<pre><code>#include &lt;stdio.h&gt;
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 
 #define N 200003    // 通常取大于数据量 2~3 倍的一个质数
@@ -73,7 +73,7 @@ int main() {
         <h2>2. 手写堆（小根堆）</h2>
         <p>数组实现的小根堆，支持插入和弹出最小值。</p>
 
-<pre><code>#include &lt;stdio.h&gt;
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
 #define MAXN 100010
 
@@ -122,7 +122,7 @@ int main() {
         <h2>3. 快速排序</h2>
         <p>标准快排模板，以中间元素为基准，hoare 风格分区。</p>
 
-<pre><code>#include &lt;stdio.h&gt;
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
 void swap(int *a, int *b) {
     int t = *a; *a = *b; *b = t;
@@ -152,7 +152,7 @@ int main() {
         <h2>4. 二分查找</h2>
         <p>两种常用模板：查找左边界（第一个大于等于 target 的位置）和右边界（最后一个小于等于 target 的位置）。</p>
 
-<pre><code>#include &lt;stdio.h&gt;
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
 // 查找左边界：第一个 &gt;= x 的位置
 int lower_bound(int a[], int n, int x) {
