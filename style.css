@@ -12,7 +12,6 @@
   --accent: #6b6b76;
   --radius: 16px;
   --gray-bg: #f7f7f8; /* 灰色区域调白一点 */
-  --wave-1: #f7f7f8;   /* 波浪后层（较淡） */
   --wave-2: #f7f7f8;   /* 波浪前层 */
 }
 
@@ -129,6 +128,7 @@ body {
 
 .wave-front {
   fill: var(--wave-2);
+  opacity: 1;
 }
 
 /* 内容容器（窄卡片，居中） */
