@@ -210,7 +210,12 @@ body {
   }
 
   .content-wrap {
+    padding-top: 70px;  /* 手机端留出导航栏高度，内容不被遮住 */
+  }
+
+  .content-wrap.has-banner {
     margin-top: 60vh;
+    padding-top: 0;  /* 首页不需要，因为已经有 60vh 空白 */
   }
 
   .container {
